@@ -1,14 +1,11 @@
 ## Changes:
+_This should be a description of what changes your pull request is introducing_
+_Please also link the associated ticket here, by using one of Github's 'closing' keywords ('Fixes', 'Closes') followed by the ticket number (i.e. '#21')_
 
-
-
-## Screenshots:
-(prefer animated gif)
-
-## Impacts and Notes:
+## How to test this PR:
 
 ## Checklist:
 - [ ] tested locally
-- [ ] added new dependencies
-- [ ] updated the docs
-- [ ] added a test
+- [ ] added tests if needed
+- [ ] linked the associated ticket
+- [ ] assigned yourself to this PR
