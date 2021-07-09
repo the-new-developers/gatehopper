@@ -3,7 +3,7 @@
 //And if you haven't heard of Daniel Shiffman, watch his stuff. It is either
 //done in processing or p5.js of which one is a port of the other
 
-let scenes = {
+const scenes = {
     "Challenge Mode": challengeMode,
     "Cheat Sheet": cheatSheet,
     "Game Over": gameOver,
