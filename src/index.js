@@ -4,22 +4,27 @@
 //done in processing or p5.js of which one is a port of the other
 
 let scenes = {
-    "Challenge Mode": challengeMode,
-    "Cheat Sheet": cheatSheet,
-    "Game Over": gameOver,
-    "Instructions": instructions,
-    "Main Menu": mainMenu,
-    "Practice Mode": practiceMode,
-    "Settings": settings
+    "Challenge Mode": challengeMode, ///src/scenes/challengeMode.js
+    "Cheat Sheet": cheatSheet, ///src/scenes/cheatSheet.js
+    "Game Over": gameOver, ///src/scenes/gameOver.js
+    "Instructions": instructions, ///src/scenes/instructions.js
+    "Main Menu": mainMenu, ///src/scenes/mainMenu.js
+    "Practice Mode": practiceMode, ///src/scenes/practiceMode.js
+    "Settings": settings ///src/scenes/settings.js
 };
 
 let currentScene = "Main Menu";
 
+//P5.JS setup function
 function setup()
 {
     createCanvas(640,480);
 }
 
+//P5.JS draw function
+//This gets called every frame
+//Unless there is something global, the draw functions should be changed in
+//their respective files.
 function draw()
 {
     scenes[currentScene]();
