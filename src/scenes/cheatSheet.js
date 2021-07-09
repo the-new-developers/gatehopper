@@ -1,4 +1,4 @@
-let cheatSheet = function()
+const cheatSheet = function()
 {
     background(0, 255, 0);
 }

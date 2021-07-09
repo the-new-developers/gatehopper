@@ -1,4 +1,4 @@
-let settings = function()
+const settings = function()
 {
     background(255, 255, 255);
 }

@@ -1,4 +1,4 @@
-let gameOver = function()
+const gameOver = function()
 {
     background(0, 255, 255);
 }
