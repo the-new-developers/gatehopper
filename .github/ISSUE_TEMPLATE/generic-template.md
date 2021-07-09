@@ -10,6 +10,9 @@ assignees: ''
 ## Summary:
 _Fill in the problem with the solution/creation/situation of the ticket._
 
+## Blocked by:
+_Link any issues here that need to be completed first before this one can be taken on_
+
 ## Unresolved questions:
 _Any related questions that don’t have full answers to them._
 
