@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gatehooper -- Hello</title>
+</head>
+<body>
+    {% if username %}
+    <h1>Hello, {{ username | capitalize }}!</h1>
+    <a href="http://127.0.0.1:5000/logout">Click here to logout...</a>
+    <p>
+        Here will be added the navigation system to the game.
+    </p>
+    {% else %}
+    <h1>Hello, there!</h1>
+    <a href="http://127.0.0.1:5000/login">Click here to login...</a>
+    {% endif %}
+</body>
+</html>
