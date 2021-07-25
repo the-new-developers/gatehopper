@@ -20,4 +20,4 @@ _Any related questions that don’t have full answers to them._
 _This could include further detail, personal thoughts, future considerations, etc._
 
 ## References:
-_Add any wire frame link, images, videos, and/or confluence document that can help give more context._
+_Add any wire frame link, images, videos, and/or document that can help give more context._
