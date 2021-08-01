@@ -1,4 +1,10 @@
-const instructions = function()
-{
-    background(255, 0, 0);
+const instructions = {
+    "setup": function()
+    {
+
+    },
+    "draw": function()
+    {
+        background(255, 0, 0);
+    }
 }

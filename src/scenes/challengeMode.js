@@ -1,4 +1,10 @@
-const challengeMode = function()
-{
-    background(0, 0, 255);
+const challengeMode = {
+    "setup": function()
+    {
+
+    },
+    "draw": function()
+    {
+        background(0, 0, 255);
+    }
 }
