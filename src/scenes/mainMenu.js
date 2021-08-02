@@ -2,7 +2,7 @@ const btnImageSpritesheet = "assets/textures/mainMenu/buttons.png";
 const btnScenes = [
 	"Challenge Mode",
 	"Practice Mode",
-	"Instruction",
+	"Instructions",
 	"Cheat Sheet",
 	"Settings"
 ];
