@@ -3,22 +3,28 @@
 //And if you haven't heard of Daniel Shiffman, watch his stuff. It is either
 //done in processing or p5.js of which one is a port of the other
 
+import mainMenu from './scenes/mainMenu.js';
+
 //Add scenes from scene files here
+// const scenes = {
+//     "Challenge Mode": challengeMode, ///src/scenes/challengeMode.js
+//     "Cheat Sheet": cheatSheet, ///src/scenes/cheatSheet.js
+//     "Game Over": gameOver, ///src/scenes/gameOver.js
+//     "Instructions": instructions, ///src/scenes/instructions.js
+//     "Main Menu": mainMenu, ///src/scenes/mainMenu.js
+//     "Practice Mode": practiceMode, ///src/scenes/practiceMode.js
+//     "Settings": settings ///src/scenes/settings.js
+// };
+
 const scenes = {
-    "Challenge Mode": challengeMode, ///src/scenes/challengeMode.js
-    "Cheat Sheet": cheatSheet, ///src/scenes/cheatSheet.js
-    "Game Over": gameOver, ///src/scenes/gameOver.js
-    "Instructions": instructions, ///src/scenes/instructions.js
-    "Main Menu": mainMenu, ///src/scenes/mainMenu.js
-    "Practice Mode": practiceMode, ///src/scenes/practiceMode.js
-    "Settings": settings ///src/scenes/settings.js
+    "Main Menu": mainMenu
 };
 
 //Change this to change the scene between the options above
 let currentScene = "Main Menu";
 
 //P5.JS setup function
-function setup()
+window.setup = function()
 {
     createCanvas(640,480);
 }
@@ -27,7 +33,7 @@ function setup()
 //This gets called every frame
 //Unless there is something global, the draw functions should be changed in
 //their respective files (as referenced above).
-function draw()
+window.draw = function()
 {
     scenes[currentScene]();
 }
