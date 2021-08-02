@@ -7,17 +7,17 @@ let finishedCountdown = false; //Boolean to stop the line from circling around w
 
 const levelCountdown = function()
 {
-    background(130); //setting up background color
-    textAlign(CENTER); //aligning timer text to be in center  
-    textSize(100); //changing size of text
+    background(130); //Setting up background color
+    textAlign(CENTER); //Aligning timer text to be in center  
+    textSize(100); //Changing size of text
     text(timer, width/2, height/2); //Adding text to the scene
     
-    stroke('black'); //setting up the color of the brush
-    fill('black'); //setting the fill color of the shapes
-    strokeWeight(3); //setting up the size of the brush
+    stroke('black'); //Setting up the color of the brush
+    fill('black'); //Setting the fill color of the shapes
+    strokeWeight(3); //Setting up the size of the brush
 
-    midLine = line(0,240,640,240); //drawing the first middle line
-    midLine2 = line(320,0,320,480); //drawing the second middle line
+    midLine = line(0,240,640,240); //Drawing the first middle line
+    midLine2 = line(320,0,320,480); //Drawing the second middle line
     
     stroke('white');
     noFill(); //Disabling filling
@@ -31,7 +31,7 @@ const levelCountdown = function()
     fill('black');
     strokeWeight(3);
 
-    //condition to check if countdown is finished
+    //Condition to check if countdown is finished
     if(!finishedCountdown){
         
         //The next 4 lines add the animation to the line that should circle around
@@ -44,7 +44,7 @@ const levelCountdown = function()
     /**
      * (frameCount is a variable that keeps track of the number of frames that have been displayed since program started)
      * The following condition checks if it's been 1 second and the timer bigger than 0:
-     * 1- It decreases the  timer if if condition is satisfied.
+     * 1- It decreases the  timer if condition is satisfied.
      * 2- If condition is satisfied and timer equals 0 after decreasing it, the word "Start" will be displayed and line that circles around will stop.
      */
     if(frameCount % 60 == 0 && timer > 0) {
