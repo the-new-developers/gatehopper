@@ -18,10 +18,15 @@ const scenes = {
 //Change this to change the scene between the options above
 let currentScene = "Main Menu";
 
+//dimensions of the canvas in pixels
+const height = 480;
+const width = 640;
+
 //P5.JS setup function
 function setup()
 {
-    createCanvas(640,480);
+    createCanvas(width,height);
+    scenes[currentScene]["setup"]();
 }
 
 //P5.JS draw function
@@ -30,5 +35,13 @@ function setup()
 //their respective files (as referenced above).
 function draw()
 {
-    scenes[currentScene]();
+    scenes[currentScene]["draw"]();
+    imageButtons.forEach((e, i, a) => e.show());
+}
+
+//P5.JS mouseClicked function
+//This gets called on mouse click
+function mouseClicked(event)
+{
+	imageButtons.forEach((e, i, a) => e.callback(event));
 }
