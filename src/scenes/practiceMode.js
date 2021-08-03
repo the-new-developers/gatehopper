@@ -1,4 +1,10 @@
-const practiceMode = function()
-{
-    background(255, 255, 0);
+const practiceMode = {
+    "setup": function()
+    {
+
+    },
+    "draw": function()
+    {
+        background(255, 255, 0);
+    }
 }
