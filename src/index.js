@@ -11,7 +11,8 @@ const scenes = {
     "Instructions": instructions, ///src/scenes/instructions.js
     "Main Menu": mainMenu, ///src/scenes/mainMenu.js
     "Practice Mode": practiceMode, ///src/scenes/practiceMode.js
-    "Settings": settings ///src/scenes/settings.js
+    "Settings": settings, ///src/scenes/settings.js
+    "Level Countdown": levelCountdown ///src/scenes/levelCountdown.js
 };
 
 //Change this to change the scene between the options above
