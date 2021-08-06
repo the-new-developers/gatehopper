@@ -3,30 +3,20 @@
 //And if you haven't heard of Daniel Shiffman, watch his stuff. It is either
 //done in processing or p5.js of which one is a port of the other
 
-import mainMenu from './scenes/mainMenu.js';
+import { scenes, currentScene } from './scenes/scenes.js';
 
-//Add scenes from scene files here
-// const scenes = {
-//     "Challenge Mode": challengeMode, ///src/scenes/challengeMode.js
-//     "Cheat Sheet": cheatSheet, ///src/scenes/cheatSheet.js
-//     "Game Over": gameOver, ///src/scenes/gameOver.js
-//     "Instructions": instructions, ///src/scenes/instructions.js
-//     "Main Menu": mainMenu, ///src/scenes/mainMenu.js
-//     "Practice Mode": practiceMode, ///src/scenes/practiceMode.js
-//     "Settings": settings ///src/scenes/settings.js
-// };
+//dimensions of the canvas in pixels
+// TODO: Set these as the height and width of the window on load, and change them whenever the window is resized.
+const height = 480;
+const width = 640;
 
-const scenes = {
-    "Main Menu": mainMenu
-};
-
-//Change this to change the scene between the options above
-let currentScene = "Main Menu";
+let canvas = {};
 
 //P5.JS setup function
 window.setup = function()
 {
-    createCanvas(640,480);
+    canvas = createCanvas(width,height);
+    scenes[currentScene.value].setup();
 }
 
 //P5.JS draw function
@@ -35,5 +25,16 @@ window.setup = function()
 //their respective files (as referenced above).
 window.draw = function()
 {
-    scenes[currentScene]();
+    scenes[currentScene.value].draw();
 }
+
+//P5.JS mouseClicked function
+//This gets called on mouse click
+// window.mouseClicked(event)
+// {
+//     console.log("mouse clicked!")
+//     console.log({ event })
+// 	//imageButtons.forEach((e, i, a) => e.callback(event));
+// }
+
+export { canvas };
