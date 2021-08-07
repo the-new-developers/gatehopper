@@ -1,7 +1,8 @@
 import Scene from "../objects/scene.js";
 import { scaleNearestNeighbor } from "../helperFunctions/imageFunctions.js";
 import ImageButton from "../objects/imageButton.js";
-import { currentScene, scenes, MAIN_MENU } from "../scenes/scenes.js";
+import sceneManager from "../objects/sceneManager.js";
+import { MAIN_MENU } from "../constants/sceneConstants.js";
 
 export default class CheatSheet extends Scene {
 	constructor() {
@@ -19,9 +20,8 @@ export default class CheatSheet extends Scene {
 				this.cheatSheetBtnImg = scaleNearestNeighbor(this.cheatSheetBtnImg, 301, 103);
 				this.cheatSheetBtn = new ImageButton(this.cheatSheetBtnImg, 13, 359,
 					() => {
-						currentScene = MAIN_MENU;
+						sceneManager.setCurrentScene(MAIN_MENU);
 						this.cheatSheetBtn.destroy();
-						scenes[currentScene]["setup"]();
 					});
 				this.cheatSheetBtn.init();
 			});

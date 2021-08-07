@@ -45,8 +45,10 @@ export default class ImageButton {
 		this.x = x;
 		this.y = y;
 		this.callback = function (event) {
+			console.log("ib callback")
 			if (mouseX > x && mouseX < x + img.width && mouseY > y && mouseY < y + img.height)
 			{
+				console.log("entered if")
 				callback(event);
 			}
 		};

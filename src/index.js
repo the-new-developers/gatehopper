@@ -3,38 +3,26 @@
 //And if you haven't heard of Daniel Shiffman, watch his stuff. It is either
 //done in processing or p5.js of which one is a port of the other
 
-import { scenes, currentScene } from './scenes/scenes.js';
+import sceneManager from './objects/sceneManager.js';
+import { MAIN_MENU } from './constants/sceneConstants.js';
+import canvas from './objects/canvas.js';
 
-//dimensions of the canvas in pixels
-// TODO: Set these as the height and width of the window on load, and change them whenever the window is resized.
-const height = 480;
-const width = 640;
-
-let canvas = {};
-
-//P5.JS setup function
+/**
+ * Our index.js file serves as the gateway into the rest of our application,
+ * and this setup method hooks into the p5 setup function, which is the gateway to all
+ * things p5 in our application.
+ */
 window.setup = function()
 {
-    canvas = createCanvas(width,height);
-    scenes[currentScene.value].setup();
+    canvas.createCanvas();
+    sceneManager.setCurrentScene(MAIN_MENU);
 }
 
-//P5.JS draw function
-//This gets called every frame
-//Unless there is something global, the draw functions should be changed in
-//their respective files (as referenced above).
+/**
+ * This hooks into the p5 draw function, which gets called every frame.
+ * We are using this to pipe through the draw function of whichever scene is currently set.
+ */
 window.draw = function()
 {
-    scenes[currentScene.value].draw();
+    sceneManager.getCurrentScene().draw();
 }
-
-//P5.JS mouseClicked function
-//This gets called on mouse click
-// window.mouseClicked(event)
-// {
-//     console.log("mouse clicked!")
-//     console.log({ event })
-// 	//imageButtons.forEach((e, i, a) => e.callback(event));
-// }
-
-export { canvas };
