@@ -2,7 +2,7 @@ import Scene from "../objects/scene.js";
 import { scaleNearestNeighbor } from "../helperFunctions/imageFunctions.js";
 import ImageButton from "../objects/imageButton.js";
 import sceneManager from "../objects/sceneManager.js";
-import canvas from "../objects/canvas.js";
+import canvasManager from "../objects/canvasManager.js";
 import { CHALLENGE_MODE, PRACTICE_MODE, INSTRUCTIONS, CHEAT_SHEET, SETTINGS } from "../constants/sceneConstants.js";
 
 export default class MainMenu extends Scene {
@@ -47,7 +47,7 @@ export default class MainMenu extends Scene {
             });
         });
 		
-        canvas.p5Canvas.mouseClicked((event) => {
+        canvasManager.canvas.mouseClicked((event) => {
 			this.imageButtons.forEach(button => button.callback(event)); 
         });
     }

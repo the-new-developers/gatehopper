@@ -10,6 +10,6 @@ export default class Settings extends Scene {
 
     setup() {}
     draw() {
-        background(255, 255, 255);
+        background(123, 123, 123);
     }
 }

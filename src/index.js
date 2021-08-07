@@ -5,7 +5,7 @@
 
 import sceneManager from './objects/sceneManager.js';
 import { MAIN_MENU } from './constants/sceneConstants.js';
-import canvas from './objects/canvas.js';
+import canvasManager from './objects/canvasManager.js';
 
 /**
  * Our index.js file serves as the gateway into the rest of our application,
@@ -14,7 +14,7 @@ import canvas from './objects/canvas.js';
  */
 window.setup = function()
 {
-    canvas.createCanvas();
+    canvasManager.createCanvas();
     sceneManager.setCurrentScene(MAIN_MENU);
 }
 

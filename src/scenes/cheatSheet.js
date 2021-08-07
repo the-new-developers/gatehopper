@@ -3,7 +3,7 @@ import { scaleNearestNeighbor } from "../helperFunctions/imageFunctions.js";
 import ImageButton from "../objects/imageButton.js";
 import sceneManager from "../objects/sceneManager.js";
 import { MAIN_MENU } from "../constants/sceneConstants.js";
-import canvas from "../objects/canvas.js";
+import canvasManager from "../objects/canvasManager.js";
 
 export default class CheatSheet extends Scene {
 	constructor() {
@@ -23,11 +23,14 @@ export default class CheatSheet extends Scene {
 					this.cheatSheetBtnImg, 
 					13, 
 					359,
-					() => sceneManager.setCurrentScene(MAIN_MENU)
+					() => { 
+						canvasManager.canvas.clear();
+						sceneManager.setCurrentScene(MAIN_MENU);
+					}
 				);
 			});
 
-		canvas.p5Canvas.mouseClicked((event) => {
+			canvasManager.canvas.mouseClicked((event) => {
 			this.cheatSheetBtn.callback(event); 
 		});
 	}
