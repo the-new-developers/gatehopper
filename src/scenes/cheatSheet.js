@@ -3,6 +3,7 @@ import { scaleNearestNeighbor } from "../helperFunctions/imageFunctions.js";
 import ImageButton from "../objects/imageButton.js";
 import sceneManager from "../objects/sceneManager.js";
 import { MAIN_MENU } from "../constants/sceneConstants.js";
+import canvas from "../objects/canvas.js";
 
 export default class CheatSheet extends Scene {
 	constructor() {
@@ -18,13 +19,17 @@ export default class CheatSheet extends Scene {
 		this.cheatSheetBtnImg = loadImage("assets/textures/CheatSheetBackButton.png",
 			() => {
 				this.cheatSheetBtnImg = scaleNearestNeighbor(this.cheatSheetBtnImg, 301, 103);
-				this.cheatSheetBtn = new ImageButton(this.cheatSheetBtnImg, 13, 359,
-					() => {
-						sceneManager.setCurrentScene(MAIN_MENU);
-						this.cheatSheetBtn.destroy();
-					});
-				this.cheatSheetBtn.init();
+				this.cheatSheetBtn = new ImageButton(
+					this.cheatSheetBtnImg, 
+					13, 
+					359,
+					() => sceneManager.setCurrentScene(MAIN_MENU)
+				);
 			});
+
+		canvas.p5Canvas.mouseClicked((event) => {
+			this.cheatSheetBtn.callback(event); 
+		});
 	}
 
 	draw() {

@@ -1,10 +1,15 @@
-const settings = {
-    "setup": function()
-    {
+import Scene from "../objects/scene.js";
 
-    },
-    "draw": function()
-    {
+/**
+ * This scene will manage the game's settings screen.
+ */
+export default class Settings extends Scene {
+    constructor() {
+        super();
+    }
+
+    setup() {}
+    draw() {
         background(255, 255, 255);
     }
 }

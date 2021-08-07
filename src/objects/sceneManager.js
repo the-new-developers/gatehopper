@@ -1,6 +1,11 @@
 import { MAIN_MENU, CHEAT_SHEET, CHALLENGE_MODE, GAME_OVER, INSTRUCTIONS, PRACTICE_MODE, SETTINGS } from "../constants/sceneConstants.js";
 import MainMenu from "../scenes/mainMenu.js";
 import CheatSheet from "../scenes/cheatSheet.js";
+import GameOver from "../scenes/gameOver.js";
+import Instructions from "../scenes/instructions.js";
+import PracticeMode from "../scenes/practiceMode.js";
+import Settings from "../scenes/settings.js";
+import ChallengeMode from "../scenes/challengeMode.js";
 
 /**
  * We'll use this class to help us manage our scenes;
@@ -18,14 +23,11 @@ class SceneManager {
     #scenes = {
         [MAIN_MENU]: new MainMenu(),
         [CHEAT_SHEET]: new CheatSheet(),
-        // "Challenge Mode": challengeMode, ///src/scenes/challengeMode.js
-        // "Cheat Sheet": cheatSheet, ///src/scenes/cheatSheet.js
-        // "Game Over": gameOver, ///src/scenes/gameOver.js
-        // "Instructions": instructions, ///src/scenes/instructions.js
-        // "Main Menu": mainMenu, ///src/scenes/mainMenu.js
-        // "Practice Mode": practiceMode, ///src/scenes/practiceMode.js
-        // "Settings": settings, ///src/scenes/settings.js
-        // "Level Countdown": levelCountdown ///src/scenes/levelCountdown.js
+        [CHALLENGE_MODE]: new ChallengeMode(),
+        [GAME_OVER]: new GameOver(),
+        [INSTRUCTIONS]: new Instructions(),
+        [PRACTICE_MODE]: new PracticeMode(),
+        [SETTINGS]: new Settings()
     };
 
     #valid_scenes = [
@@ -46,12 +48,12 @@ class SceneManager {
     }
 
     /**
-     * Sets the current scene and calls the scene's setup method.
+     * Validates and sets the current scene.
+     * If the desired scene doesn't exist, this method fails silently.
      * @param {string} sceneName The scene name to set. See sceneConstants.js for valid values.
      * @returns void
      */
     setCurrentScene(sceneName) {
-        // If we're attempting to change to a scene that doesn't exist, don't do anything.
         if (!this.#valid_scenes.some(scene => scene === sceneName))
             return;
 

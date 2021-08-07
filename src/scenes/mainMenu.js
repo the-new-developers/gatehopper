@@ -11,6 +11,10 @@ export default class MainMenu extends Scene {
         this.imageButtons = [];
     }
 
+	/**
+	 * Our own private method for changing scenes.
+	 * @param {string} sceneName The name of the scene we want to change to.
+	 */
 	#changeScene(sceneName) {
 		this.imageButtons = [];
 		sceneManager.setCurrentScene(sceneName);
@@ -37,18 +41,15 @@ export default class MainMenu extends Scene {
 					image,										// The image to set
 					0, 											// The x coordinate 
 					index * 70,									// The y coordinate
-					() => { 
-						console.log(btnScenes[index])
-						this.#changeScene(btnScenes[index])
-						}	// The function to call when this button is clicked on
+					() => this.#changeScene(btnScenes[index])	// The function to call when this button is clicked on
 				);
                 this.imageButtons.push(btn);
             });
         });
 		
-        // canvas.p5Canvas.mousePressed(() => { 
-        //     sceneManager.setCurrentScene(CHEAT_SHEET);
-        // });
+        canvas.p5Canvas.mouseClicked((event) => {
+			this.imageButtons.forEach(button => button.callback(event)); 
+        });
     }
 
     draw() {

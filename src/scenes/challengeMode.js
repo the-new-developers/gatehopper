@@ -1,10 +1,15 @@
-const challengeMode = {
-    "setup": function()
-    {
+import Scene from "../objects/scene.js";
 
-    },
-    "draw": function()
-    {
+/**
+ * This scene will manage the game's challenge mode.
+ */
+export default class ChallengeMode extends Scene {
+    constructor() {
+        super();
+    }
+
+    setup() {}
+    draw() {
         background(0, 0, 255);
     }
 }
