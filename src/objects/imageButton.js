@@ -1,11 +1,6 @@
-let imageButtons = [];
-
-const ImageButton = class
-{
-	img;
-	x;
-	y;
-	callback;
+// TODO: Add some documentation here.
+export default class ImageButton {
+>>>>>>> origin/barnes/modules-refactor
 	
 	constructor(img, x, y, callback)
 	{
@@ -23,16 +18,5 @@ const ImageButton = class
 	show()
 	{
 		image(this.img, this.x, this.y);
-	}
-
-	init()
-	{
-		if (imageButtons.indexOf(this) == -1)
-			imageButtons.push(this);
-	}
-
-	destroy()
-	{
-		imageButtons.splice(imageButtons.indexOf(this), 1);
 	}
 }
