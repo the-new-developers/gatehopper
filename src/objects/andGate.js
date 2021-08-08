@@ -1,4 +1,6 @@
-const AndGate = class extends TwoInputGate
+import { TwoInputGate } from "TwoInputGate.js";
+
+export class AndGate extends TwoInputGate
 {
 	constructor(input1, input2)
 	{

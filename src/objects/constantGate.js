@@ -1,12 +1,11 @@
-const ConstantGate = class extends Gate
-{
-	img;
+import { Gate } from "Gate.js";
 
-	value;
+export class ConstantGate extends Gate
+{
 	constructor(value)
 	{
 		this.value = value;
-		this.img = loadImage("assets/textures/gates/Buffer.png");
+		super(loadImage("assets/textures/gates/No Input Buffer.png"));
 	}
 
 	answer()

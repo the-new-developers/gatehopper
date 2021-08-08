@@ -1,21 +1,14 @@
-const OneInputGate = class extends Gate
-{
-	input1;
+import { Gate } from "gate.js";
 
-	constructor(input)
+export class OneInputGate extends Gate
+{
+	constructor(input, img)
 	{
 		if (this.constructor === OneInputGate)
 		{
 			throw new TypeError("Abstract class \"OneInputGate\" cannot be instantiated directly.");
 		}
 		this.input1 = input;
-	}
-
-	answer()
-	{
-		if (this.schema === undefined)
-		{
-			throw new TypeError("Classes extending \"OneInputGate\" must implement \"answer()\"");
-		}
+		super(img);
 	}
 }

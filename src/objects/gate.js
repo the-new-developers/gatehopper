@@ -1,13 +1,12 @@
-const Gate = class
+export class Gate
 {
-	img = createImage(16, 16);
-
-	constructor()
+	constructor(img)
 	{
 		if (this.constructor === Gate)
 		{
 			throw new TypeError("Abstract class \"Gate\" cannot be instantiated directly.");
 		}
+		this.img = img;
 	}
 
 	answer()
@@ -18,8 +17,8 @@ const Gate = class
 		}
 	}
 
-	show(x, y, w, h)
+	show()
 	{
-		image(scaleNearestNeighbor(this.img, w, h), x, y);
+		image(this.img);
 	}
 }

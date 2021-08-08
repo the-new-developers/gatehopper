@@ -1,9 +1,10 @@
-const OrGate = class extends TwoInputGate
+import { TwoInputGate } from "twoInputGate.js";
+
+export class OrGate extends TwoInputGate
 {
 	constructor(input1, input2)
 	{
-		super(input1, input2);
-		this.img = loadImage("assets/textures/gates/OR Gate.png");
+		super(input1, input2, loadImage("assets/textures/gates/OR Gate.png"));
 	}
 
 	answer()
