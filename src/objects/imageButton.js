@@ -1,6 +1,5 @@
 // TODO: Add some documentation here.
 export default class ImageButton {
->>>>>>> origin/barnes/modules-refactor
 	
 	constructor(img, x, y, callback)
 	{
