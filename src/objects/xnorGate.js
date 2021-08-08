@@ -1,14 +1,14 @@
-import { TwoInputGate } from "twoInputGate.js";
+import { XorGate } from "xorGate.js";
 
-export class XnorGate extends TwoInputGate
+export class XnorGate extends XorGate
 {
-	constructor(input1, input2)
+	constructor(input1, input2, img)
 	{
-		super(input1, input2, loadImage("assets/textures/gates/XNOR Gate.png"));
+		super(input1, input2, img);
 	}
 
 	answer()
 	{
-		return !(this.input1.answer() ^ this.input2.answer());
+		return !super.answer();
 	}
 }

@@ -2,9 +2,9 @@ import { TwoInputGate } from "twoInputGate.js";
 
 export class XorGate extends TwoInputGate
 {
-	constructor(input1, input2)
+	constructor(input1, input2, img)
 	{
-		super(input1, input2, loadImage("assets/textures/gates/XOR Gate.png"));
+		super(input1, input2, img);
 	}
 
 	answer()

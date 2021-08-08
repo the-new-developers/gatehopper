@@ -1,14 +1,14 @@
-import { TwoInputGate } from "twoInputGate.js";
+import { OrGate } from "orGate.js";
 
-export class NorGate extends TwoInputGate
+export class NorGate extends OrGate
 {
-	constructor(input1, input2)
+	constructor(input1, input2, img)
 	{
-		super(input1, input2, loadImage("assets/textures/gates/NOR Gate.png"));
+		super(input1, input2, img);
 	}
 
 	answer()
 	{
-		return !(this.input1.answer() | this.input2.answer());
+		return !super.answer();
 	}
 }

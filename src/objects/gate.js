@@ -1,3 +1,5 @@
+import { scaleNearestNeighbor } from "../helperFunctions/imageFunctions.js"
+
 export class Gate
 {
 	constructor(img)
@@ -17,8 +19,15 @@ export class Gate
 		}
 	}
 
-	show()
+	show(x, y)
 	{
-		image(this.img);
+		image(this.img, x, y);
+	}
+
+	// This function should be used only occasionally
+	// Scaling apparently is very intensive on
+	show(x, y, width, height)
+	{
+		image(scaleNearestNeighbor(img, width, height), x, y);
 	}
 }

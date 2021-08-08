@@ -2,9 +2,9 @@ import { OneInputGate } from "OneInputGate.js";
 
 export class NotGate extends OneInputGate
 {
-	constructor(input)
+	constructor(input, img)
 	{
-		super(input, loadImage("assets/textures/gates/NOT Gate.png"));
+		super(input, img);
 	}
 
 	answer()

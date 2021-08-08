@@ -1,14 +1,14 @@
-import { TwoInputGate } from "twoInputGate.js";
+import { AndGate } from "andGate.js";
 
-export class NandGate extends TwoInputGate
+export class NandGate extends AndGate
 {
-	constructor(input1, input2)
+	constructor(input1, input2, img)
 	{
-		super(input1, input2, loadImage("assets/textures/gates/NAND Gate.png"));
+		super(input1, input2, img);
 	}
 
 	answer()
 	{
-		return !(this.input1.answer() & this.input2.answer());
+		return !super.answer();
 	}
 }

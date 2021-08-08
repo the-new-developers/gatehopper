@@ -2,10 +2,9 @@ import { TwoInputGate } from "TwoInputGate.js";
 
 export class AndGate extends TwoInputGate
 {
-	constructor(input1, input2)
+	constructor(input1, input2, img)
 	{
-		super(input1, input2)
-		this.img = loadImage("assets/textures/gates/AND Gate.png");
+		super(input1, input2, img);
 	}
 
 	answer()
