@@ -56,5 +56,4 @@ const levelCountdown = function()
             finishedCountdown = true;
         }
     }
-    
 }
