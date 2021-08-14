@@ -1,6 +1,6 @@
-import { TwoInputGate } from "TwoInputGate.js";
+import TwoInputGate from "./twoInputGate.js";
 
-export class AndGate extends TwoInputGate
+export default class AndGate extends TwoInputGate
 {
 	constructor(input1, input2, img)
 	{

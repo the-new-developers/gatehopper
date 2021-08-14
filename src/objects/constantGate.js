@@ -1,15 +1,15 @@
-import { Gate } from "Gate.js";
+import Gate from "./gate.js";
 
-export class ConstantGate extends Gate
+export default class ConstantGate extends Gate
 {
-	constructor(value)
+	constructor(value, img)
 	{
+		super(img);
 		this.value = value;
-		super(loadImage("assets/textures/gates/No Input Buffer.png"));
 	}
 
 	answer()
 	{
-		return value;
+		return this.value;
 	}
 }

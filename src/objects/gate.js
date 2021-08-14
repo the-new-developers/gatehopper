@@ -1,6 +1,6 @@
-import { scaleNearestNeighbor } from "../helperFunctions/imageFunctions.js"
+import { scaleNearestNeighbor } from "../helperFunctions/imageFunctions.js";
 
-export class Gate
+export default class Gate
 {
 	constructor(img)
 	{
@@ -21,13 +21,16 @@ export class Gate
 
 	show(x, y)
 	{
+		if (this.answer())
+			tint("#ffff00");
 		image(this.img, x, y);
+		noTint();
 	}
 
 	// This function should be used only occasionally
 	// Scaling apparently is very intensive on
-	show(x, y, width, height)
+	showScaled(x, y, width, height)
 	{
-		image(scaleNearestNeighbor(img, width, height), x, y);
+		image(scaleNearestNeighbor(this.img, width, height), x, y);
 	}
 }
