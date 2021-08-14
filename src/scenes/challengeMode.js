@@ -18,7 +18,7 @@ export default class ChallengeMode extends Scene {
    		this.constant1 = new ConstantGate(1, img);
    		this.constant2 = new ConstantGate(1, img);
    		img = loadImage("assets/textures/gates/AND Gate.png");
-  		this.gate = new AndGate(this.constant1, this.constant2, img)
+  		this.gate = new AndGate(this.constant1, this.constant2, img);
     }
     
     draw() {
