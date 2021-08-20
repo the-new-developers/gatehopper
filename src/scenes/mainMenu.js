@@ -9,6 +9,15 @@ export default class MainMenu extends Scene {
     constructor() { 
         super(); 
         this.imageButtons = [];
+        this.btnImgs = [];
+        this.img = null;
+        this.btnScenes = [
+             CHALLENGE_MODE,
+             PRACTICE_MODE,
+             INSTRUCTIONS,
+             CHEAT_SHEET,
+             SETTINGS
+        ];
     }
 
 	/**
@@ -20,35 +29,38 @@ export default class MainMenu extends Scene {
 		sceneManager.setCurrentScene(sceneName);
 	}
 
+	preload()
+	{
+		const btnImageSpriteSheet = "assets/textures/mainMenu/buttons.png";
+		let promise = new Promise((resolve, reject) => {
+			this.img = loadImage(btnImageSpriteSheet, () =>
+			{
+				this.img.loadPixels();
+				this.btnScenes.forEach((e, i, a) => {
+		            let subImg = this.img.get(0, i*11, 75, 11);
+		            this.btnImgs.push(scaleNearestNeighbor(subImg, 480, 70));
+		        });
+		        resolve(true);
+			})
+		});
+		return [promise];
+	}
+
     setup() {
-        const btnImageSpritesheet = "assets/textures/mainMenu/buttons.png";
-        const btnScenes = [
-            CHALLENGE_MODE,
-            PRACTICE_MODE,
-            INSTRUCTIONS,
-            CHEAT_SHEET,
-            SETTINGS
-        ];
-        let btnImgs = [];
-        let img = loadImage(btnImageSpritesheet, () => {
-            img.loadPixels();
-            btnScenes.forEach((e, i, a) => {
-                let subImg = img.get(0, i*11, 75, 11);
-                btnImgs.push(scaleNearestNeighbor(subImg, 480, 70));
-            });
-            btnImgs.forEach((image, index) => {
-                let btn = new ImageButton(
-					image,										// The image to set
-					0, 											// The x coordinate 
-					index * 70,									// The y coordinate
-					() => this.#changeScene(btnScenes[index])	// The function to call when this button is clicked on
-				);
-                this.imageButtons.push(btn);
-            });
+        
+        this.btnImgs.forEach((image, index) => {
+            let btn = new ImageButton(
+				image,										// The image to set
+				0, 											// The x coordinate 
+				index * 70,									// The y coordinate
+				() => this.#changeScene(this.btnScenes[index])	// The function to call when this button is clicked on
+			);
+            this.imageButtons.push(btn);
         });
 		
         canvasManager.canvas.mouseClicked((event) => {
-			this.imageButtons.forEach(button => button.callback(event)); 
+			for (let i of this.imageButtons)
+				i.callback(event); 
         });
     }
 

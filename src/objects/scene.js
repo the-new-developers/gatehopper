@@ -4,6 +4,9 @@
  * we never want to instantiate this class directly.
  */
 export default class Scene {
+	preload() {
+		return [];
+	}
     setup() {}
     draw() {
         background(0, 0, 0);
