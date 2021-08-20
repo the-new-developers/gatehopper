@@ -1,3 +1,11 @@
+import { MAIN_MENU, CHEAT_SHEET, CHALLENGE_MODE, GAME_OVER, INSTRUCTIONS, PRACTICE_MODE, SETTINGS } from "../constants/sceneConstants.js";
+import MainMenu from "../scenes/mainMenu.js";
+import CheatSheet from "../scenes/cheatSheet.js";
+import GameOver from "../scenes/gameOver.js";
+import Instructions from "../scenes/instructions.js";
+import PracticeMode from "../scenes/practiceMode.js";
+import Settings from "../scenes/settings.js";
+import ChallengeMode from "../scenes/challengeMode.js";
 
 /**
  * We'll use this class to help us manage our scenes;

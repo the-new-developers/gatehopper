@@ -3,22 +3,16 @@
 //And if you haven't heard of Daniel Shiffman, watch his stuff. It is either
 //done in processing or p5.js of which one is a port of the other
 
-//Add scenes from scene files here
-const scenes = {
-    "Challenge Mode": challengeMode, ///src/scenes/challengeMode.js
-    "Cheat Sheet": cheatSheet, ///src/scenes/cheatSheet.js
-    "Game Over": gameOver, ///src/scenes/gameOver.js
-    "Instructions": instructions, ///src/scenes/instructions.js
-    "Main Menu": mainMenu, ///src/scenes/mainMenu.js
-    "Practice Mode": practiceMode, ///src/scenes/practiceMode.js
-    "Settings": settings ///src/scenes/settings.js
-};
+import sceneManager from './objects/sceneManager.js';
+import { MAIN_MENU } from './constants/sceneConstants.js';
+import canvasManager from './objects/canvasManager.js';
 
-//Change this to change the scene between the options above
-let currentScene = "Main Menu";
-
-//P5.JS setup function
-function setup()
+/**
+ * Our index.js file serves as the gateway into the rest of our application,
+ * and this setup method hooks into the p5 setup function, which is the gateway to all
+ * things p5 in our application.
+ */
+window.setup = function()
 {
 	let promises = [];
 	for (let i of sceneManager
@@ -35,11 +29,11 @@ function setup()
 		});
 }
 
-//P5.JS draw function
-//This gets called every frame
-//Unless there is something global, the draw functions should be changed in
-//their respective files (as referenced above).
-function draw()
+/**
+ * This hooks into the p5 draw function, which gets called every frame.
+ * We are using this to pipe through the draw function of whichever scene is currently set.
+ */
+window.draw = function()
 {
-    scenes[currentScene]();
+    sceneManager.getCurrentScene().draw();
 }
