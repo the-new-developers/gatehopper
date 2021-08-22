@@ -16,7 +16,7 @@ export default class ChallengeMode extends Scene {
     		.all(this.gateFactory.preload())
     		.then(() =>
     		{
-    			//This callback will be moved to setup once the preloader isadded
+    			//This callback will be moved to setup once the preloader is added
     			this.constant1 = this.gateFactory.create(GateTypeEnum.CONST, 0);
     			this.constant2 = this.gateFactory.create(GateTypeEnum.CONST, 1);
 
