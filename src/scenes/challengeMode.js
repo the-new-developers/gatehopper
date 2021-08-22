@@ -1,6 +1,5 @@
 import Scene from "../objects/scene.js";
-import ConstantGate from "../objects/constantGate.js";
-import AndGate from "../objects/andGate.js";
+import { GateFactory, GateTypeEnum } from "../objects/gateFactory.js";
 
 /**
  * This scene will manage the game's challenge mode.
@@ -8,23 +7,43 @@ import AndGate from "../objects/andGate.js";
 export default class ChallengeMode extends Scene {
     constructor() {
         super();
+        this.gates = [];
     }
 
     setup() {
-    	this.constant1;
-    	this.constant2;
-    	this.gate;
-    	let img = loadImage("assets/textures/gates/No Input Buffer.png");
-   		this.constant1 = new ConstantGate(1, img);
-   		this.constant2 = new ConstantGate(1, img);
-   		img = loadImage("assets/textures/gates/AND Gate.png");
-  		this.gate = new AndGate(this.constant1, this.constant2, img);
+    	this.gateFactory = new GateFactory();
+    	Promise
+    		.all(this.gateFactory.preload())
+    		.then(() =>
+    		{
+    			//This callback will be moved to setup once the preloader isadded
+    			this.constant1 = this.gateFactory.create(GateTypeEnum.CONST, 0);
+    			this.constant2 = this.gateFactory.create(GateTypeEnum.CONST, 1);
+
+				this.gates.push(
+					this.gateFactory.create(
+						1, this.constant1
+					)
+				);
+
+    			for (let i = 2; i < 8; i++)
+    			{
+    				this.gates.push(
+    					this.gateFactory
+    						.create(i,
+    							this.constant1,
+    							this.constant2)
+    				);
+    			}
+    		})
+    		.finally();
     }
     
     draw() {
         background(0, 0, 255);
         this.constant1.show(100, 100);
         this.constant2.show(100, 200);
-        this.gate.show(150, 150);
+		for (let i = 0; i < this.gates.length; i++)
+        	this.gates[i].show(150, 150 + i * 50);
     }
 }
