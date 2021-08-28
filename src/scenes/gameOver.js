@@ -1,4 +1,5 @@
 import Scene from "../objects/scene.js";
+import canvas from "../objects/canvasManager.js";
 
 /**
  * This scene will manage our Game Over screen.
@@ -8,8 +9,13 @@ export default class GameOver extends Scene {
         super();
     }
 
-    setup() {}
+    setup() {
+        this.gameOverText = createDiv('Game Over');
+        this.gameOverText.addClass('game-over');
+        this.gameOverText.position(canvas.width/4, canvas.height/2);
+    }
+
     draw() {
-        background(0, 255, 255);
+        background('black');
     }
 }
