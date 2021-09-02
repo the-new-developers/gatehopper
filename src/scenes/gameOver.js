@@ -1,4 +1,5 @@
 import Scene from "../objects/scene.js";
+import canvas from "../objects/canvasManager.js";
 import { scaleNearestNeighbor } from "../helperFunctions/imageFunctions.js";
 import ImageButton from "../objects/imageButton.js";
 import sceneManager from "../objects/sceneManager.js";
@@ -14,6 +15,14 @@ export default class GameOver extends Scene {
 	}
 
     setup() {
+        this.gameOverText = createDiv('Game Over');
+        this.gameOverText.addClass('game-over');
+        this.gameOverText.position(canvas.width/4, canvas.height/2);
+    }
+
+    draw() {
+        background('black');
+
 		this.gameOverBtnImg = loadImage("assets/textures/ReturnButton.png",
 			() => {
 				this.gameOverBtnImg = scaleNearestNeighbor(this.gameOverBtnImg, 301, 103);
