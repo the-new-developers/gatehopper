@@ -13,24 +13,34 @@ export default class CheatSheet extends Scene {
 		this.cheatSheetBtn = {};
 	}
 
-	setup() {
-		this.cheatSheetImg = loadImage("assets/textures/CheatSheet.png",
-			() => this.cheatSheetImg = scaleNearestNeighbor(this.cheatSheetImg, 640, 480));
-		this.cheatSheetBtnImg = loadImage("assets/textures/CheatSheetBackButton.png",
-			() => {
-				this.cheatSheetBtnImg = scaleNearestNeighbor(this.cheatSheetBtnImg, 301, 103);
-				this.cheatSheetBtn = new ImageButton(
-					this.cheatSheetBtnImg, 
-					13, 
-					359,
-					() => { 
-						canvasManager.canvas.clear();
-						sceneManager.setCurrentScene(MAIN_MENU);
-					}
-				);
-			});
+	preload()
+	{
+		let promiseA = new Promise((resolve, reject) =>
+		{
+			this.cheatSheetImg = loadImage("assets/textures/CheatSheet.png",
+				() => this.cheatSheetImg = scaleNearestNeighbor(this.cheatSheetImg, 640, 480));
+			resolve(true);
+		});
+		let promiseB = new Promise((resolve, reject) =>
+		{
+			this.cheatSheetBtnImg = loadImage("assets/textures/CheatSheetBackButton.png",
+				() => this.cheatSheetBtnImg = scaleNearestNeighbor(this.cheatSheetBtnImg, 301, 103));
+			resolve(true);
+		});
+		return [promiseA, promiseB];
+	}
 
-			canvasManager.canvas.mouseClicked((event) => {
+	setup() {
+		this.cheatSheetBtn = new ImageButton(
+			this.cheatSheetBtnImg, 
+			13, 
+			359,
+			() => { 
+				canvasManager.canvas.clear();
+				sceneManager.setCurrentScene(MAIN_MENU);
+			}
+		);
+		canvasManager.canvas.mouseClicked((event) => {
 			this.cheatSheetBtn.callback(event); 
 		});
 	}

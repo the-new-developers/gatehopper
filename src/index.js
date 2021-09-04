@@ -14,8 +14,19 @@ import canvasManager from './objects/canvasManager.js';
  */
 window.setup = function()
 {
-    canvasManager.createCanvas();
-    sceneManager.setCurrentScene(MAIN_MENU);
+	let promises = [];
+	for (let i of sceneManager
+			.getScenes()
+			.sceneIter())
+	{
+		promises = [...promises, ...i.preload()];
+	}
+	Promise
+		.all(promises)
+		.then(() => {
+		    canvasManager.createCanvas();
+		    sceneManager.setCurrentScene(MAIN_MENU);	
+		});
 }
 
 /**

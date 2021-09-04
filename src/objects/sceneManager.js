@@ -27,7 +27,14 @@ class SceneManager {
         [GAME_OVER]: new GameOver(),
         [INSTRUCTIONS]: new Instructions(),
         [PRACTICE_MODE]: new PracticeMode(),
-        [SETTINGS]: new Settings()
+        [SETTINGS]: new Settings(),
+        sceneIter: function* ()
+        {
+        	for (let i of sceneManager.getValidScenes())
+        	{
+				yield this[i];
+           	}
+        }
     };
 
     #valid_scenes = [
@@ -59,6 +66,16 @@ class SceneManager {
 
         this.#current_scene = sceneName;
         this.getCurrentScene().setup();
+    }
+
+    getScenes()
+    {
+    	return this.#scenes;
+    }
+
+    getValidScenes()
+    {
+    	return this.#valid_scenes;
     }
 }
 
