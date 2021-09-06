@@ -2,3 +2,25 @@
 	margin: 0px;
 	padding: 0px;
 }
+
+.game-over {
+	width: 9.5ch;
+	color: rgba(153, 7, 7, 0.87);
+	white-space: pre;
+	overflow: hidden;
+	animation: cursorTyping 1s steps(15), blink .3s step-end infinite alternate;
+	border-right: 3px solid white;
+	font-size: 70px;
+}
+  
+@keyframes cursorTyping {
+	from {
+		width: 0;
+	}
+}
+	  
+@keyframes blink {
+	50% {
+	  border-color: transparent;
+	}
+}

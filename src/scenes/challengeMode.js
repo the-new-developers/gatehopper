@@ -1,5 +1,6 @@
 import Scene from "../objects/scene.js";
 import { GateFactory, GateTypeEnum } from "../objects/gateFactory.js";
+import LifeBar from "../objects/lifeBar.js";
 
 /**
  * This scene will manage the game's challenge mode.
@@ -11,6 +12,7 @@ export default class ChallengeMode extends Scene {
     }
 
     setup() {
+      this.lifeBar = new LifeBar();
     	this.gateFactory = new GateFactory();
     	Promise
     		.all(this.gateFactory.preload())
@@ -43,7 +45,8 @@ export default class ChallengeMode extends Scene {
         background(0, 0, 255);
         this.constant1.show(100, 100);
         this.constant2.show(100, 200);
-		for (let i = 0; i < this.gates.length; i++)
-        	this.gates[i].show(150, 150 + i * 50);
+        for (let i = 0; i < this.gates.length; i++)
+              this.gates[i].show(150, 150 + i * 50);
+        this.lifeBar.drawLifeBar();
     }
 }
