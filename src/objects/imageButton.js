@@ -33,7 +33,7 @@ export default class ImageButton {
 	click(callback)
 	{
 		this.clickCallback = function (event) {
-			if (mouseX > x && mouseX < x + img.width && mouseY > y && mouseY < y + img.height)
+			if (mouseX > this.x && mouseX < this.x + this.img.width && mouseY > this.y && mouseY < this.y + this.img.height)
 			{
 				callback(event);
 			}
@@ -48,10 +48,10 @@ export default class ImageButton {
 	/// <returns>"this" for chaining</returns>
 	hover(callback)
 	{
-		this.hoverCallback = function (event) {
-			if (mouseX > x && mouseX < x + img.width && mouseY > y && mouseY < y + img.height)
+		this.hoverCallback = function () {
+			if (mouseX > this.x && mouseX < this.x + this.img.width && mouseY > this.y && mouseY < this.y + this.img.height)
 			{
-				callback(event);
+				callback();
 			}
 		};
 		return this;

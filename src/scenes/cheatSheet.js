@@ -22,16 +22,16 @@ export default class CheatSheet extends Scene {
 				this.cheatSheetBtn = new ImageButton(
 					this.cheatSheetBtnImg, 
 					13, 
-					359,
-					() => { 
-						canvasManager.canvas.clear();
-						sceneManager.setCurrentScene(MAIN_MENU);
-					}
+					359
 				);
+				this.cheatSheetBtn.click(() => { 
+					canvasManager.canvas.clear();
+					sceneManager.setCurrentScene(MAIN_MENU);
+				});
 			});
 
 			canvasManager.canvas.mouseClicked((event) => {
-			this.cheatSheetBtn.callback(event); 
+			this.cheatSheetBtn.clickCallback(event); 
 		});
 	}
 
